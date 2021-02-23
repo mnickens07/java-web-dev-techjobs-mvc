@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container">
+<body >
 
 <div th:replace="fragments :: page-header"></div>
 
@@ -17,7 +17,6 @@
                 <input
                         type="radio"
                         name="searchType"
-                        class="form-control"
                         th:id="${column.key}"
                         th:value="${column.key}"
                         th:checked="${column.key == 'all'}"/>
@@ -38,16 +37,16 @@
 
     <!-- TODO #4 - Loop over the search results to display all job fields. -->
     <table class="job-listing">
-<!--        <thead>-->
-<!--            <tr>-->
-<!--                <th>ID:</th>-->
-<!--                <th>Name:</th>-->
-<!--                <th>Employer:</th>-->
-<!--                <th>Location:</th>-->
-<!--                <th>Position Type:</th>-->
-<!--                <th>Skills:</th>-->
-<!--            </tr>-->
-<!--        </thead>-->
+        <thead>
+            <tr>
+                <th>ID:</th>
+                <th>Name:</th>
+                <th>Employer:</th>
+                <th>Location:</th>
+                <th>Position Type:</th>
+                <th>Skills:</th>
+            </tr>
+        </thead>
         <tr  th:each = "job : ${jobs}">
             <td th:text = "${job.id}"></td>
             <td th:text = "${job.name}"></td>
