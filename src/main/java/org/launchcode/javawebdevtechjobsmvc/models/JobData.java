@@ -54,26 +54,26 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        ArrayList<Job> jobs = new ArrayList<>();
+        ArrayList<Job> jobsToPrint = new ArrayList<>();
 
         if (value.toLowerCase().equals("all")){
             return findAll();
         }
 
         if (column.equals("all")){
-            jobs = findByValue(value);
-            return jobs;
+            jobsToPrint = findByValue(value);
+            return jobsToPrint;
         }
         for (Job job : allJobs) {
 
             String aValue = getFieldValue(job, column);
 
             if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {
-                jobs.add(job);
+                jobsToPrint.add(job);
             }
         }
 
-        return jobs;
+        return jobsToPrint;
     }
 
     public static String getFieldValue(Job job, String fieldName){
